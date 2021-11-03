@@ -1,0 +1,10 @@
+.recipe{
+
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-color: #F7F7F7;
+    color: black;
+    box-sizing: border-box;
+    padding: 5%;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}

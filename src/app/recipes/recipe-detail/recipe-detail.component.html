@@ -1,0 +1,56 @@
+<div class="recipe">
+  <div class="row">
+    <div class="col-xs-12">
+      <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-responsive"
+        style="max-height: 350px;border-radius: 50%;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8">
+      <h1>{{ recipe.name }}</h1>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="btn-group" appDropdown>
+        <button type="button" class="btn btn-primary dropdown-toggle">
+          Manage Recipe <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a (click)="onAddToShoppingList()" style="cursor: pointer;">To Shopping List</a></li>
+          <li><a style="cursor: pointer;" (click)="onEditRecipe()">Edit Recipe</a></li>
+          <li><a style="cursor: pointer;" (click)="onDeleteRecipe()">Delete Recipe</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="recipe" style="margin-bottom:2px;">
+    <div class="row">
+      <div class="col-xs-8">
+        <h2 style="color: lightgray;;">Recipe</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12" style="color: dimgray; font-family: 'Open Sans';">
+        {{ recipe.description }}
+      </div>
+    </div>
+  </div>
+  <div class="recipe">
+    <div class="row">
+      <div class="col-xs-8">
+        <h2 style="color: lightgray;;">Ingredients</h2>
+      </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients" style="color: dimgray; font-family: 'Open Sans';">
+            {{ ingredient.name }} - {{ ingredient.amount }} ({{ingredient.uom}})
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="onAddItem(shoppingListEditForm)" #shoppingListEditForm="ngForm">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" class="form-control" ngModel name="name" required>
+          <!-- <span *ngIf="!name.valid && name.touched" class="error">Required*</span> -->
+        </div>
+        <div class="col-sm-3 form-group">
+          <label for="uom">Unit of Measurement</label>
+          <input type="text" id="uom" class="form-control" ngModel name="uom" required>
+          <!-- <span *ngIf="!amount.valid && amount.touched" class="error">Required*</span> -->
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" class="form-control" ngModel name="amount" required pattern="^[1-9]+[0-9]*$">
+          <!-- <span *ngIf="!amount.valid && amount.touched" class="error">Required*</span> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" type="submit" [disabled]="!shoppingListEditForm.valid">
+            {{isIngredientEdit ? 'Update' : 'Add'}}
+          </button>
+          <button *ngIf="isIngredientEdit" class="btn btn-danger" type="button" (click)="onDelete()">Delete</button>
+          <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
